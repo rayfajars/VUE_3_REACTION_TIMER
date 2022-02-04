@@ -1,16 +1,32 @@
 <template>
-  <h1>Ray Fajar S</h1>
+  <h1>Reaction Timer</h1>
+  <button @click="start" :disabled="isPlaying">play</button>
+  <Block v-if="isPlaying" :delay="delay"/>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-
+import Block from "./components/Block.vue";
 export default {
-  name: 'App',
+  name: "App",
+  data() {
+    return {
+      isPlaying: false,
+      delay: null,
+    };
+  },
   components: {
     // HelloWorld
-  }
-}
+    Block,
+  },
+  methods: {
+    start() {
+      this.delay = 2000 + Math.random() * 5000;
+      this.isPlaying = true;
+      // console.log(this.delay);
+    },
+  },
+};
 </script>
 
 <style>
