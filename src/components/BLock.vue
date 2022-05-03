@@ -29,7 +29,8 @@ export default {
     stopTimer() {
         clearInterval(this.timer)
         // console.log(this.reactionTime)
-        this.$emit('end', this.reactionTime)
+        this.$emit('abcd', this.reactionTime)
+        // abcd itu nama fungsinya buat di APP nanti
     },
   },
 };
