@@ -3,12 +3,14 @@
   <button @click="start" :disabled="isPlaying">play</button>
   <Block v-if="isPlaying" :delay="delay" @abcd="endGame"/>
 
-<p v-if="showResults">Reaction Time : {{score}} ms</p>
+  <Results v-if="showResults" :score="score"/>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import Block from "./components/Block.vue";
+import Results from "./components/Results.vue";
+
 export default {
   name: "App",
   data() {
@@ -16,12 +18,14 @@ export default {
       isPlaying: false,
       delay: null,
       score:null,
-      showResults:false
+      showResults:false,
+
     };
   },
   components: {
     // HelloWorld
     Block,
+    Results
   },
   methods: {
     start() {
